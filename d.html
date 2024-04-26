@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <input type="text" name="api" id="api" />
+    <br>
+    <textarea id="akcesstoken" name="akcesstoken" ></textarea>
+
+    <button onclick="call()">Get Token</button>
+    <button onclick="getscanuuid()">Get ScanUUID</button>
+
+    <p id="data"></p>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+    function call(){
+        var formData = {
+                'api': $("#api").val()
+            };
+        $.ajax({
+                url: "https://ak-api.akcess.dev/api/v1/getToken",
+                type: "post",
+                data: formData,
+                success: function(d) {
+                    console.log(d);
+                    $("#data").append(d);
+                }
+            });
+    }
+    function getscanuuid(){
+        var formData = {
+               // 'api': '48edeeb2c87c0e0a8ab51f02fd3db409',
+                'api': $("#api").val(),
+                'AKcessToken': $("#akcesstoken").val()
+        };
+
+        $.ajax({
+                url: "https://ak-api.akcess.dev/api/v1/generateQrCode",
+                type: "post",
+                data: formData,
+                success: function(d) {
+                    console.log(d);
+                    $("#data").append(d);
+                }
+            });
+    }
+    </script>
+  </body>
+</html>
