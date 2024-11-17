@@ -1,5 +1,5 @@
 
-# Docker and deploying a website with NGINX:
+# Set Up a Virtualized Environment Using Docker 
 
 ## Step 1: Log in to Your VM
 Access your VM using SSH. (This example assumes you are using Google Cloud Platform (GCP)).
