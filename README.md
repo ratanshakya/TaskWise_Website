@@ -80,8 +80,9 @@ cd TaskWise_Website
 ## Step 6: Create a Dockerfile
 Create a Dockerfile:
 ```
-touch Dockerfile
 ls
+vim Dockerfile
+
 ```
 ![Screenshot 2024-11-17 104842](https://github.com/user-attachments/assets/9a263abc-369a-48f3-9c44-d60c9c2a148b)
 
